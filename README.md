@@ -2,6 +2,13 @@
 
 ReactJS/Apollo/GraphQL Application to demonstrate how to create CRUD with filters and authentication
 
+Using the following:
+
+* ReactJS (https://reactjs.org/)
+* Apollo (https://www.apollographql.com/)
+* GraphQL (https://graphql.org/)
+* TailwindCSS [https://www.smashingmagazine.com/2020/02/tailwindcss-react-project/]
+
 ## Available Scripts
 
 In the project directory, you can run:
