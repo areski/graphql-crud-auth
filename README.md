@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# GraphQL-Crud-Auth
+
+ReactJS/Apollo/GraphQL Application to demonstrate how to create CRUD with filters and authentication
 
 ## Available Scripts
 
