@@ -8,6 +8,11 @@ Using the following:
 * Apollo (https://www.apollographql.com/)
 * GraphQL (https://graphql.org/)
 * TailwindCSS [https://www.smashingmagazine.com/2020/02/tailwindcss-react-project/]
+* OneGraph - https://www.onegraph.com/
+
+
+Want to build your own JWT authentication with Django:
+https://hackernoon.com/110percent-complete-jwt-authentication-with-django-and-react-2020-iejq34ta
 
 ## Available Scripts
 

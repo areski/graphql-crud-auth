@@ -1,6 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import { Redirect } from "react-router-dom";
+import { Route, Redirect } from 'react-router-dom';
 import ListCustomer from './components/ListCustomer';
 import EditCustomer from './components/EditCustomer';
 
@@ -8,7 +7,8 @@ import EditCustomer from './components/EditCustomer';
 const BaseRouter = () => (
   <div>
     <Route exact path='/' component={ListCustomer} />
-    <Route path='/edit' component={EditCustomer} />
+    <Route path='/list' component={ListCustomer} />
+    <Route path='/edit/:id' children={<EditCustomer />} />
     <Route
       exact
       path='/logout'
@@ -27,5 +27,6 @@ const BaseRouter = () => (
 
   </div>
 );
+
 
 export default BaseRouter;

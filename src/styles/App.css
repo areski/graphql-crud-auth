@@ -78,3 +78,12 @@ body, html, .App, #root, .auth-wrapper {
   border-radius: 15px;
   transition: all .3s;
 }
+
+
+.header-login {
+  text-align: right;
+}
+
+.header-title{
+  padding-bottom: 30px;
+}
