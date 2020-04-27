@@ -1,14 +1,17 @@
-FROM node:carbon as builder
-ENV NODE_ENV=PRODUCTION
+#Build
+FROM mhart/alpine-node:12 AS builder
+
 WORKDIR /app
-COPY package.json ./
-RUN npm install --production
 COPY . .
-RUN npm run build
 
-FROM node:8-alpine
-RUN npm -g install serve
+RUN npm install react-scripts -g
+RUN yarn install
+RUN yarn run build
 
+
+#Serve
+FROM mhart/alpine-node
+RUN yarn global add serve
 WORKDIR /app
 COPY --from=builder /app/build .
-CMD ["serve", "-p", "8080"]
+CMD ["serve", "-p", "80", "-s", "."]
