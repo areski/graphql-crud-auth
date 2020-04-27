@@ -11,6 +11,8 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 
 export const HASURA_GRAPHQL_ENGINE_HOSTNAME = 'localhost:8080';
 
+console.log("HASURA_GRAPHQL_ENGINE_HOSTNAME: ", HASURA_GRAPHQL_ENGINE_HOSTNAME);
+
 const scheme = (proto) => {
   return window.location.protocol === 'https:' ? `${proto}s` : proto;
 }

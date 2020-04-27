@@ -1,22 +1,27 @@
 version: '3.6'
 services:
   postgres:
+    container_name: crud-db
     image: postgres:12
     ports:
       - "5444:5432"
     restart: always
     volumes:
-    - db_data:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgrespassword
       POSTGRES_DB: postgres
+      # psql postgres://postgres:postgrespassword@localhost:5432/postgres
+    networks:
+      - backend
   graphql-engine:
+    container_name: crud-graphql-engine
     image: hasura/graphql-engine:v1.2.0-beta.5
     ports:
-    - "8080:8080"
+      - "8080:8080"
     depends_on:
-    - "postgres"
+      - "postgres"
     restart: always
     environment:
       HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5432/postgres
@@ -24,14 +29,24 @@ services:
       HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
       ## uncomment next line to set an admin secret
       # HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
-  webapp:
+    networks:
+      - web
+      - backend
+  web-app:
+    container_name: crud-web-app
     build: .
     restart: always
     ports:
       - "8000:80"
     depends_on:
-        - "graphql-engine"
+      - "graphql-engine"
+    networks:
+      - web
 volumes:
   db_data:
 
-# psql postgres://postgres:postgrespassword@localhost:5432/postgres
+networks:
+  web:
+    external: false
+  backend:
+    external: false
