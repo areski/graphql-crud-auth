@@ -9,7 +9,7 @@ import { getMainDefinition } from 'apollo-utilities';
 
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
-export const HASURA_GRAPHQL_ENGINE_HOSTNAME = 'localhost:8080';
+export const HASURA_GRAPHQL_ENGINE_HOSTNAME = 'localhost:9080';
 
 console.log("HASURA_GRAPHQL_ENGINE_HOSTNAME: ", HASURA_GRAPHQL_ENGINE_HOSTNAME);
 

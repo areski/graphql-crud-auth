@@ -1,0 +1,13 @@
+## Setting up the middleware for redirect to https ##
+http:
+    middlewares:
+      # redirect:
+      #   redirectScheme:
+      #     scheme: https
+      test-auth:
+        basicAuth:
+          users:
+            - "user:$$apr1$$ooVlR6c2$$bBDUULrTqwReHpXhLmxur0"
+            # root / ????
+            # To create user:password pair, it's possible to use this command:
+            # echo $(htpasswd -nb user password) | sed -e s/\\$/\\$\\$/g
