@@ -98,9 +98,25 @@ services:
       # - "traefik.http.routers.nginx-secured.entrypoints=web-secured" # <== Defining entrypoint for https, **ref: line 31
       # - "traefik.http.routers.nginx-secured.tls.certresolver=mytlschallenge" # <== Defining certsresolvers for https
       - "traefik.http.middlewares.test-auth.basicauth.users=test:$$apr1$$AnC9n6DU$$b/QeAYmhp8lhFCwvjgiGR."
+  portainer:
+    container_name: portainer
+    image: portainer/portainer
+    restart: always
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portainer.rule=Host(`portainer.${DOMAIN}`)"
+      - "traefik.http.routers.portainer.entrypoints=web"
+      # This is not necessary if you set your default network in Traefik config/parameters
+      - "traefik.docker.network=web"
 
 volumes:
   db_data:
+  portainer_data:
 
 networks:
   web:
