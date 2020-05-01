@@ -58,7 +58,7 @@ services:
       - backend
   graphql-engine:
     container_name: crud-graphql-engine
-    image: hasura/graphql-engine:v1.2.0-beta.5
+    image: hasura/graphql-engine:v1.2.0
     ports:
       - "9080:8080"
     depends_on:
